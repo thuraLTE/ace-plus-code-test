@@ -1,5 +1,3 @@
-# ace-plus-code-test
-
 Features to be highlighted
 ==========================
 
