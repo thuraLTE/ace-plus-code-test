@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Code Test</string>
+
+    <string name="home">Home</string>
+    <string name="photos">Photos</string>
+    <string name="loading">Loading…</string>
+    <string name="loading_error">Error occurred while loading page!</string>
+    <string name="retry">Retry</string>
+    <string name="connection_problem">Connection Problem</string>
+    <string name="connection_message">You are currently unconnected to Internet. Connect now?</string>
+    <string name="connect">Connect</string>
+    <string name="exit">Exit</string>
+</resources>
