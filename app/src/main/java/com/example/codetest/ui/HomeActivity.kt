@@ -13,6 +13,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.example.codetest.R
+import com.example.codetest.utils.EspressoIdlingResource
 import com.example.codetest.utils.References
 import com.google.android.material.snackbar.Snackbar
 
@@ -24,7 +25,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_home)
 
         mWebView = findViewById(R.id.webView)
 
@@ -74,6 +75,7 @@ class HomeActivity : AppCompatActivity() {
             }
 
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                EspressoIdlingResource.increment()
                 dialog.show()
                 if (url?.equals(References.EVENT_PAGE_LINK) == true) {
                     val intent = Intent(applicationContext, ProductActivity::class.java)
@@ -85,6 +87,7 @@ class HomeActivity : AppCompatActivity() {
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 dialog.hide()
+                EspressoIdlingResource.decrement()
                 super.onPageFinished(view, url)
             }
 
