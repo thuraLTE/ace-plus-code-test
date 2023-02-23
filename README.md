@@ -8,3 +8,4 @@ Features to be highlighted
 5. Intent
 6. AlertDialog
 7. Snackbar
+8. Hilt
