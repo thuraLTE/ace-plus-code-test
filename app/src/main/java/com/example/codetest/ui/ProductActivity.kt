@@ -1,21 +1,21 @@
 package com.example.codetest.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
-import android.os.PersistableBundle
 import android.util.Log
 import android.view.KeyEvent
 import androidx.activity.viewModels
-import androidx.core.content.ContextCompat.startActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.codetest.R
 import com.example.codetest.adapter.ProductAdapter
 import com.example.codetest.model.Product
 import com.example.codetest.viewmodel.ProductViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProductActivity : AppCompatActivity() {
 
     private val productViewModel: ProductViewModel by viewModels()
