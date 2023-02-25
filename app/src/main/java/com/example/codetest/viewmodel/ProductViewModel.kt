@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.codetest.model.Product
+import com.example.codetest.model.ProductMapper
 import com.example.codetest.network.NetworkService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -12,7 +13,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ProductViewModel @Inject constructor(
-    private val networkService: NetworkService
+    private val networkService: NetworkService,
+    private val mapper: ProductMapper
 ): ViewModel() {
 
     private var _productList = MutableLiveData<List<Product>>()
@@ -20,7 +22,9 @@ class ProductViewModel @Inject constructor(
 
     fun getProductListFromNetwork() {
         viewModelScope.launch {
-            _productList.value = networkService.fetchAllProducts().productList
+            _productList.value = networkService.fetchAllProducts().productList.map { productApiResponse ->
+                mapper.toDomainModel(productApiResponse)
+            }
         }
     }
 }
